@@ -13,13 +13,13 @@ This project demonstrates an automated ETL pipeline that ingests raw taxi trip r
 
 [ Public CSV / AWS S3 ]
 │
-▼ (Extract: HTTP Streaming)
+ (Extract: HTTP Streaming)
 [ Raw Pandas DataFrames ]
 │
-▼ (Transform: Data Cleaning & Feature Engineering)
+ (Transform: Data Cleaning & Feature Engineering)
 [ Cleaned & Standardized Data ]
 │
-▼ (Load: SQLAlchemy Batch Ingestion)
+ (Load: SQLAlchemy Batch Ingestion)
 [ PostgreSQL Database (fact_taxi_trips) ]
 
 
@@ -40,3 +40,10 @@ This project demonstrates an automated ETL pipeline that ingests raw taxi trip r
 - **Database Connection:** `SQLAlchemy`, `psycopg2-binary`
 - **Target Database:** PostgreSQL 15+
 
+## Project File Structure
+Senior-Data-Engineer-Internship/
+├── etl_pipeline.py
+├── schema.sql
+├── requirements.txt
+├── .gitignore
+└── README.md
