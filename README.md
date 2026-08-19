@@ -41,13 +41,3 @@ This project demonstrates an automated ETL pipeline that ingests raw taxi trip r
 - **Database Connection:** `SQLAlchemy`, `psycopg2-binary`
 - **Target Database:** PostgreSQL 15+
 
----
-
-## 📂 Repository Structure
-
-
-├── etl_pipeline.py    # Main ETL pipeline script
-├── schema.sql         # PostgreSQL database DDL & indices
-├── requirements.txt   # Python dependencies
-├── .gitignore         # Files to exclude from version control
-└── README.md          # Project documentation
