@@ -24,26 +24,30 @@ This project demonstrates an automated ETL pipeline that ingests raw taxi trip r
 
 
 ### Key Workflow Stages:
-1. **Extract:** Stream raw CSV partitions from HTTP endpoints directly to memory without local disk overhead.
+### Key Workflow Stages:
+1. **Extract:** Stream raw CSV partitions from HTTP endpoints directly into memory without local disk storage overhead.
 2. **Transform:**
-   - Impute missing values and enforce temporal bounds.
-   - Typecast dates (`datetime64[ns]`) and compute dynamic attributes (`trip_duration_min`).
-   - Remove negative fare anomalies, zero-distance records, and extreme duration outliers (> 3 hours).
-   - Deduplicate using compound key checks.
-3. **Load:** Bulk load cleaned records into PostgreSQL using `SQLAlchemy` batch insertion (`chunksize=1000`).
+   - Handle missing values and enforce temporal consistency.
+   - Typecast fields (`datetime64[ns]`) and calculate derived attributes (`trip_duration_min`).
+   - Filter out statistical anomalies (negative fares, zero-distance trips) and extreme duration outliers (> 3 hours).
+   - Perform deduplication using compound key logic.
+3. **Load:** Bulk-load cleaned output into PostgreSQL using `SQLAlchemy` transactional batch insertion (`chunksize=1000`).
 
 ---
 
 ## 🛠️ Tech Stack & Prerequisites
 - **Language:** Python 3.9+
-- **Data Libraries:** `pandas`, `numpy`
+- **Data Processing:** `pandas`, `numpy`
 - **Database Connection:** `SQLAlchemy`, `psycopg2-binary`
 - **Target Database:** PostgreSQL 15+
 
-## Project File Structure
-Senior-Data-Engineer-Internship/
-├── etl_pipeline.py
-├── schema.sql
-├── requirements.txt
-├── .gitignore
-└── README.md
+---
+
+## 📂 Repository Structure
+
+
+├── etl_pipeline.py    # Main ETL pipeline script
+├── schema.sql         # PostgreSQL database DDL & indices
+├── requirements.txt   # Python dependencies
+├── .gitignore         # Files to exclude from version control
+└── README.md          # Project documentation
